@@ -1,4 +1,4 @@
-import urllib, urllib2, time, os, socket
+import urllib, urllib2, time, os, socket, sys
 import xml.dom.minidom
 
 from Bushido.common.out import _log
