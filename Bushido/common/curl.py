@@ -80,18 +80,23 @@ class curl:
         }
         headers.update(httpheaders)
         req = urllib2.Request(url, None, headers)
-        resp = urllib2.urlopen(req)
-        re302 = resp.geturl()
-        _log("[+] Redirecting to %s" % re302)
-        filename = ""
-        filename = urllib.unquote(os.path.basename(re302)).decode('utf8')
-        dest_name = filename
-        data = resp.read()
-        
-        if data is None:
-            _log('[*] No download provided.')
-        else:
-            with open(dest_name, 'wb') as fw:
-                fw.write(data)
-            _log('[+] Download ok: %s' % os.path.basename(re302))
-            time.sleep(10)
+        try:
+            resp = urllib2.urlopen(req)
+            re302 = resp.geturl()
+            _log("[+] Redirecting to %s" % re302)
+            filename = ""
+            filename = urllib.unquote(os.path.basename(re302)).decode('utf8')
+            dest_name = filename
+            data = resp.read()
+            
+            if data is None:
+                _log('[*] No download provided.')
+            else:
+                with open(dest_name, 'wb') as fw:
+                    fw.write(data)
+                _log('[+] Download ok: %s' % os.path.basename(re302))
+                time.sleep(10)
+        except urllib2.HTTPError, e:
+            _log("There was an error: %s" % e)
+            sys.exc_clear()
+            pass
