@@ -17,6 +17,7 @@ Currently it support downloading from the following Unofficial iOS AppStore(s) a
 Supported Third-party Markets
 -----------------------------
 + ios.d.cn: http://ios.d.cn (ios.d.cn)
++ os-ios.liqucn: http://os-ios.liqucn.com (os-ios.liqucn.com)
 
 TODO
 ----
