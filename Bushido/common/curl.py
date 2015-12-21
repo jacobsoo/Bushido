@@ -82,6 +82,7 @@ class curl:
         req = urllib2.Request(url, None, headers)
         resp = urllib2.urlopen(req)
         re302 = resp.geturl()
+        _log("[+] Redirecting to %s" % re302)
         filename = ""
         filename = urllib.unquote(os.path.basename(re302)).decode('utf8')
         dest_name = filename

@@ -23,7 +23,7 @@ class dcn(object):
         except OSError:
             pass
         os.chdir("./Bushido/downloads/dcn")
-        for i in range(9, _number_pages+1):
+        for i in range(1, _number_pages+1):
             self.download_url = download_url + str(i) + ".html"
             filename, download_html = d._curl(self.download_url)
             _log("[+] Mass downloading from %s" % unquote(self.download_url))
